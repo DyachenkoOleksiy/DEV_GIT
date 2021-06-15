@@ -1,0 +1,37 @@
+Филды которые нужно прокинуть в КЗ:
+В КЗ
+Ani
+First6Digits
+Last4Digits
+birthday
+expDate
+serviceCount
+serviceID
+OTPPassword
+reference
+category
+
+Обратно:
+Result
+code
+resultCode
+reference
+description
+errorCode
+error_code
+transferDirection
+
+Детали разработки:
+https://confluence.fuib.com/pages/viewpage.action?pageId=13370291 - вот тут смотрим что карта блокирована по пину.
+if (data.card_state_response && data.card_state_response.card_state.consecutive_pin_retries > 3) {
+    data.pin_block = true;
+} else {
+    data.pin_block = false;
+}
+
+
+* в таск лист реквестом показываешь намерение заполнить какое либо поле
+* идёт поиск экшена, который подходит по условиям и может выполнить реквест
+* экшн повторяется до того момента пока не выполнится заполнение (если нет ограничивающих условий)
+* поле заполнилось(ТАСК становится "ноАпликабл")
+* идёт поиск следующего "апликабл" таска ниже
